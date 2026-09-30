@@ -1002,12 +1002,12 @@ dialog[open]{animation:dlg .25s cubic-bezier(.2,.8,.2,1)}
       </div>
       <div>
         <h4>Company</h4>
-        <ul><li><a href="https://nexmancer.com" target="_blank" rel="noopener">NEXMANCER ↗</a></li><li><a href="#" data-contact>Contact</a></li><li><a href="/privacy">Privacy policy</a></li><li><a href="/terms">Terms</a></li><li><a href="/refunds">Refund policy</a></li></ul>
+        <ul><li><a href="https://nexmancer.com" target="_blank" rel="noopener">NEXMANCER ↗</a></li><li><a href="mailto:business@nexmancer.com" data-contact>Contact</a></li><li><a href="/privacy">Privacy policy</a></li><li><a href="/terms">Terms</a></li><li><a href="/refunds">Refund policy</a></li></ul>
       </div>
     </div>
     <div class="f-bot">
       <span>© <span id="yr">2026</span> Sensighty. A product of <span class="nx" style="font-size:12px"><svg><use href="#i-nx"/></svg>NEXMANCER</span></span>
-      <nav aria-label="Legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="#" data-contact>Contact</a></nav>
+      <nav aria-label="Legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:business@nexmancer.com" data-contact>Contact</a></nav>
     </div>
   </div>
 </footer>
@@ -1062,7 +1062,7 @@ dialog[open]{animation:dlg .25s cubic-bezier(.2,.8,.2,1)}
 /* ============ Configuration — set these before going live ============ */
 const CONFIG = {
   APP_URL: '',          // e.g. 'https://app.sensighty.nexmancer.com' — "Start" buttons go here. Empty = scroll to live demo.
-  CONTACT_EMAIL: ''     // e.g. 'hello@nexmancer.com' — used by "Book a demo" / "Contact".
+  CONTACT_EMAIL: 'business@nexmancer.com'     // used by "Book a demo" / "Contact".
 };
 
 const $ = (s, r = document) => r.querySelector(s);
