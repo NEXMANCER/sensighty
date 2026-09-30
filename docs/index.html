@@ -192,8 +192,9 @@ section{scroll-margin-top:80px}
 
 /* video */
 .video-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:#0B1122;aspect-ratio:16/9}
-.video-frame video{width:100%;height:100%;object-fit:cover}
-.video-frame .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(11,17,34,0) 40%,rgba(11,17,34,.35));transition:background .2s}
+.video-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.video-frame .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(11,17,34,0) 40%,rgba(11,17,34,.35));transition:background .2s;cursor:pointer;z-index:2}
+.video-frame .play[hidden],.video-frame .play.hidden{display:none !important}
 .video-frame .play span{width:88px;height:88px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 20px 40px rgba(0,0,0,.25);transition:transform .2s}
 .video-frame .play:hover span{transform:scale(1.06)}
 .video-frame .play svg{width:30px;height:30px;margin-left:5px;fill:var(--rose)}
@@ -644,8 +645,10 @@ dialog[open]{animation:dlg .25s cubic-bezier(.2,.8,.2,1)}
 <section class="sec" style="padding-top:40px" id="overview">
   <div class="wrap">
     <div class="video-frame rv">
-      <video id="inlineVideo" preload="none" playsinline poster="/doc/Sensighty_LinkedIn_Media_1920x1080.png">
-        <source src="/doc/Sensighty_Features_Voice_1920x1080.mp4" type="video/mp4">
+      <video id="inlineVideo" preload="metadata" playsinline poster="../doc/Sensighty_LinkedIn_Media_1920x1080.png" src="Sensighty_Features_Voice_1920x1080.mp4">
+        <source src="Sensighty_Features_Voice_1920x1080.mp4" type="video/mp4">
+        <source src="./Sensighty_Features_Voice_1920x1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
       </video>
       <button class="play" id="inlinePlay" aria-label="Play the Sensighty overview video"><span><svg><use href="#i-play"/></svg></span><em class="dur" style="font-style:normal">▶ Sensighty in 51 seconds</em></button>
     </div>
@@ -998,7 +1001,10 @@ dialog[open]{animation:dlg .25s cubic-bezier(.2,.8,.2,1)}
 <!-- ======= DIALOGS ======= -->
 <dialog id="dlgVideo" class="dlg-video" aria-label="Sensighty overview video">
   <div class="dlg-h"><span style="font-weight:600">Sensighty in 51 seconds</span><button class="dlg-x" data-close aria-label="Close"><svg><use href="#i-x"/></svg></button></div>
-  <video id="modalVideo" controls playsinline preload="none" poster="/doc/Sensighty_LinkedIn_Media_1920x1080.png"><source src="/doc/Sensighty_Features_Voice_1920x1080.mp4" type="video/mp4"></video>
+  <video id="modalVideo" controls playsinline preload="none" poster="../doc/Sensighty_LinkedIn_Media_1920x1080.png" src="Sensighty_Features_Voice_1920x1080.mp4">
+    <source src="Sensighty_Features_Voice_1920x1080.mp4" type="video/mp4">
+    <source src="./Sensighty_Features_Voice_1920x1080.mp4" type="video/mp4">
+  </video>
 </dialog>
 
 <dialog id="dlgCatalog" aria-labelledby="catT">
@@ -1083,8 +1089,23 @@ $$('dialog').forEach(d => {
 
 /* inline video */
 const iv = $('#inlineVideo'), ip = $('#inlinePlay');
-ip.addEventListener('click', () => { ip.hidden = true; iv.controls = true; iv.play().catch(()=>{}); });
-iv.addEventListener('error', () => {}, true);
+if (ip && iv) {
+  const startVideo = () => {
+    ip.hidden = true;
+    ip.style.display = 'none';
+    iv.controls = true;
+    iv.play().catch(() => {});
+  };
+  ip.addEventListener('click', startVideo);
+  iv.addEventListener('click', () => {
+    if (iv.paused) startVideo();
+  });
+  iv.addEventListener('ended', () => {
+    ip.hidden = false;
+    ip.style.display = 'grid';
+    iv.controls = false;
+  });
+}
 
 /* catalog */
 const SUBJECTS = [
