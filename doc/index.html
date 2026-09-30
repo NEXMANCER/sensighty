@@ -1,0 +1,1989 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sensighty — Universal Adaptive Learning &amp; Psychometric Assessment | A Product of NEXMANCER</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Sensighty is a universal adaptive assessment and AI-guided mastery engine. Autonomous AI synthesises pedagogical curricula and questions while a deterministic Bayesian 3PL IRT kernel guarantees mathematical scoring truth." />
+    <meta name="keywords" content="Sensighty, Nexmancer, psychometric assessment, Item Response Theory, 3PL IRT, adaptive learning, computer adaptive testing, AI education, mastery certification, Bayesian assessment" />
+    <meta name="author" content="NEXMANCER" />
+    <meta name="theme-color" content="#060814" />
+    <link rel="canonical" href="https://sensighty.nexmancer.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sensighty.nexmancer.com/" />
+    <meta property="og:title" content="Sensighty — Universal Adaptive Learning &amp; Psychometric Assessment" />
+    <meta property="og:description" content="Autonomous AI synthesises pedagogical curricula while a deterministic Bayesian backend guarantees mathematical scoring truth and targeted remediation." />
+    <meta property="og:image" content="/doc/Sensighty_LinkedIn_Media_1920x1080.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sensighty — Universal Adaptive Learning &amp; Psychometric Assessment" />
+    <meta name="twitter:description" content="Generative AI synthesises curricula. A deterministic Bayesian IRT kernel scores every response — so mastery is measured, certified and verifiable." />
+    <meta name="twitter:image" content="/doc/Sensighty_LinkedIn_Media_1920x1080.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN with Custom Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              brand: {
+                dark: '#060814',
+                midnight: '#0b0d1e',
+                surface: '#11142a',
+                card: '#151933',
+                border: 'rgba(255, 255, 255, 0.08)',
+                pink: '#ff006e',
+                rose: '#f43f5e',
+                purple: '#9333ea',
+                indigo: '#6366f1',
+                cyan: '#06b6d4',
+                teal: '#14b8a6',
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'glow': 'glow 3s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              glow: {
+                '0%': { filter: 'drop-shadow(0 0 15px rgba(255, 0, 110, 0.35))' },
+                '100%': { filter: 'drop-shadow(0 0 35px rgba(147, 51, 234, 0.6))' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Custom Micro-Styles -->
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background-color: #060814;
+        color: #f1f5f9;
+        overflow-x: hidden;
+      }
+      /* Custom glowing scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #060814;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e2448;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ff006e;
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #ff006e 0%, #e11d48 40%, #9333ea 80%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .gradient-blue-text {
+        background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .glass-panel {
+        background: rgba(17, 20, 42, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-card {
+        background: rgba(21, 25, 51, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .glass-card:hover {
+        border-color: rgba(255, 0, 110, 0.3);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px -10px rgba(255, 0, 110, 0.15);
+      }
+      .glass-glow-pink {
+        box-shadow: 0 0 50px -10px rgba(255, 0, 110, 0.25);
+      }
+      .noise-bg {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 32px 32px;
+      }
+      /* Formula badge monospace glow */
+      .formula-box {
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: -0.02em;
+      }
+    </style>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Sensighty",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "Universal adaptive assessment and learning engine powered by Generative AI curricula synthesis and a deterministic Bayesian 3PL Item Response Theory kernel.",
+      "creator": {
+        "@type": "Organization",
+        "name": "NEXMANCER",
+        "url": "https://nexmancer.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+  </head>
+
+  <body class="noise-bg antialiased selection:bg-rose-500 selection:text-white">
+    <!-- Background Ambient Gradients -->
+    <div class="pointer-events-none fixed inset-0 overflow-hidden z-0">
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-tr from-rose-600/20 via-purple-600/15 to-indigo-600/10 blur-[130px] rounded-full"></div>
+      <div class="absolute top-[40%] -left-48 w-[600px] h-[600px] bg-purple-900/15 blur-[140px] rounded-full"></div>
+      <div class="absolute top-[70%] -right-48 w-[600px] h-[600px] bg-rose-900/15 blur-[140px] rounded-full"></div>
+    </div>
+
+    <!-- Navigation Header (Clean, Spacious, De-cluttered) -->
+    <header id="navbar" class="sticky top-0 z-40 w-full transition-all duration-300 border-b border-white/[0.06] bg-[#060814]/90 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-4">
+        
+        <!-- Brand Logo & Clean Subtitle -->
+        <a href="#" class="flex items-center gap-3 shrink-0 group">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#ff006e] via-[#e11d48] to-[#9333ea] flex items-center justify-center shadow-lg shadow-rose-600/30 group-hover:scale-105 transition-transform duration-200 shrink-0">
+            <!-- 4-pointed Sparkle Logo -->
+            <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-lg sm:text-xl font-bold tracking-tight text-white group-hover:text-rose-200 transition-colors leading-tight">Sensighty</span>
+            <span class="hidden sm:block text-[9px] font-bold tracking-[0.18em] uppercase text-rose-400/90 whitespace-nowrap leading-none mt-0.5">Adaptive Psychometrics</span>
+          </div>
+        </a>
+
+        <!-- Streamlined Desktop Navigation Links (Clean single-word items, no wrapping) -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 text-[13px] font-medium text-slate-300 whitespace-nowrap">
+          <a href="#simulator" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.04] transition-colors flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+            <span>Simulator</span>
+          </a>
+          <a href="#architecture" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.04] transition-colors">Architecture</a>
+          <a href="#comparison" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.04] transition-colors">Comparison</a>
+          <a href="#stakeholders" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.04] transition-colors">Ecosystem</a>
+          <a href="#credentials" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.04] transition-colors">Credentials</a>
+          <a href="#catalog" class="px-3 py-1.5 rounded-lg hover:text-white hover:bg-white/[0.04] transition-colors">Subjects</a>
+        </nav>
+
+        <!-- Right Side Controls & Badges (Guaranteed single line, no wrapping) -->
+        <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
+          
+          <!-- Corporate NEXMANCER Tag Badge (Shown on large screens, pristine single line) -->
+          <div class="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-[11px] font-semibold text-slate-300 shrink-0 whitespace-nowrap">
+            <span class="text-slate-400 text-[10px] tracking-normal font-normal">A PRODUCT OF</span>
+            <div class="flex items-center gap-1.5 text-cyan-300 font-bold">
+              <svg class="w-3.5 h-3.5 text-cyan-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
+                <polyline points="10 8 14 12 10 16" />
+              </svg>
+              <span>NEXMANCER</span>
+            </div>
+          </div>
+
+          <!-- Candidate Demo Quick Button -->
+          <button onclick="openCandidateDemoModal()" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.10] border border-white/10 hover:border-rose-400/40 transition-all shrink-0 whitespace-nowrap">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+            <span>Candidate View</span>
+          </button>
+
+          <!-- Explore Subjects Primary CTA -->
+          <button onclick="openCatalogModal()" class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-[#ff006e] via-[#e11d48] to-[#9333ea] hover:shadow-lg hover:shadow-rose-600/30 hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0 whitespace-nowrap shadow-md shadow-rose-600/20">
+            <span>Explore Subjects</span>
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 shrink-0" aria-label="Toggle navigation">
+            <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-white/[0.08] bg-[#060814]/98 px-6 py-6 backdrop-blur-2xl">
+        <div class="flex flex-col gap-4 text-base font-medium text-slate-200">
+          <a href="#simulator" onclick="toggleMobileMenu()" class="hover:text-rose-400 flex items-center justify-between py-1">
+            <span>Interactive 3PL IRT Simulator</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-rose-500/20 text-rose-300">Live</span>
+          </a>
+          <a href="#architecture" onclick="toggleMobileMenu()" class="hover:text-rose-400 py-1">Cognitive Core Architecture</a>
+          <a href="#comparison" onclick="toggleMobileMenu()" class="hover:text-rose-400 py-1">Industry Comparison</a>
+          <a href="#stakeholders" onclick="toggleMobileMenu()" class="hover:text-rose-400 py-1">Empowering Stakeholders</a>
+          <a href="#lifecycle" onclick="toggleMobileMenu()" class="hover:text-rose-400 py-1">Adaptive Lifecycle Flow</a>
+          <a href="#credentials" onclick="toggleMobileMenu()" class="hover:text-rose-400 py-1">Public Credentials &amp; Verification</a>
+          <a href="#catalog" onclick="toggleMobileMenu()" class="hover:text-rose-400 py-1">Subject Catalog</a>
+          
+          <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+            <button onclick="toggleMobileMenu(); openCatalogModal();" class="w-full py-3 rounded-xl font-bold text-center text-white bg-gradient-to-r from-rose-500 to-purple-600 shadow-lg shadow-rose-600/30">
+              Explore Subjects
+            </button>
+            <button onclick="toggleMobileMenu(); openVerifyModal();" class="w-full py-2.5 rounded-xl font-semibold text-center text-slate-300 bg-white/5 border border-white/10 hover:bg-white/10">
+              Verify Credentials (SHA-256)
+            </button>
+            <div class="mt-2 text-center text-xs text-slate-400 flex items-center justify-center gap-1.5">
+              <span>A PRODUCT OF</span>
+              <span class="text-cyan-400 font-bold">NEXMANCER</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10">
+
+      <!-- ========================================== -->
+      <!-- HERO SECTION -->
+      <!-- ========================================== -->
+      <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-4xl mx-auto">
+            <!-- Hero Pill Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-semibold mb-8 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping shrink-0"></span>
+              <span class="text-white font-bold">Sensighty v2.0</span>
+              <span class="text-rose-400">•</span>
+              <span>Universal Subject-as-Data Engine</span>
+              <span class="text-rose-400">•</span>
+              <span class="text-slate-300">Zero Hard-Coded Rules</span>
+            </div>
+
+            <!-- Primary Headline -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
+              Universal Adaptive Learning &amp;<br/>
+              <span class="gradient-text">Psychometric Assessment</span>
+            </h1>
+
+            <!-- Subheading Description -->
+            <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto mb-10">
+              Autonomous AI synthesises pedagogical curricula and questions while a deterministic Bayesian backend guarantees mathematical scoring truth, mastery certification, and targeted remediation.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 mb-16">
+              <button onclick="openCatalogModal()" class="px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#ff006e] via-[#e11d48] to-[#9333ea] hover:shadow-xl hover:shadow-rose-600/35 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap shrink-0 shadow-lg shadow-rose-600/25">
+                <span>Explore Subjects</span>
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              
+              <button onclick="openCandidateDemoModal()" class="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-slate-100 glass-card hover:bg-white/10 hover:border-white/20 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap shrink-0">
+                <svg class="w-4 h-4 text-cyan-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                <span>Candidate Dashboard</span>
+              </button>
+              
+              <button onclick="openVerifyModal()" class="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-slate-200 glass-card hover:bg-white/10 hover:border-rose-400/40 active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap shrink-0">
+                <svg class="w-4 h-4 text-rose-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Verify Credentials</span>
+              </button>
+
+              <button onclick="openAdminModal()" class="px-5 sm:px-6 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm font-semibold text-slate-300 bg-slate-900/80 border border-slate-700/60 hover:bg-slate-800 hover:text-white active:scale-95 transition-all flex items-center gap-2 whitespace-nowrap shrink-0">
+                <svg class="w-4 h-4 text-slate-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Admin Control Center</span>
+              </button>
+            </div>
+
+            <!-- Key Platform Metrics Strip -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-rose-500/40">
+                <div class="text-3xl sm:text-4xl font-black text-white tracking-tight">10</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">Active Subjects</div>
+              </div>
+              <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-purple-500/40">
+                <div class="text-3xl sm:text-4xl font-black text-white tracking-tight">169</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">Validated Questions</div>
+              </div>
+              <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-indigo-500/40">
+                <div class="text-3xl sm:text-4xl font-black text-white tracking-tight">45</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">Assessment Sessions</div>
+              </div>
+              <div class="glass-card p-5 rounded-2xl text-center border-t-2 border-t-emerald-500/40">
+                <div class="text-3xl sm:text-4xl font-black text-emerald-400 tracking-tight">100%</div>
+                <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mt-1">Deterministic Truth</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- INTERACTIVE 3PL IRT KERNEL SIMULATION -->
+      <!-- ========================================== -->
+      <section id="simulator" class="relative py-20 bg-gradient-to-b from-[#060814] via-[#090b1c] to-[#060814] border-y border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Title Header -->
+          <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-bold tracking-wider uppercase mb-3">
+              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+              Live Interactive Demonstration
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              Test-Drive The Bayesian 3PL IRT Adaptive Kernel
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-slate-300">
+              Experience how candidate latent ability (&theta;) and measurement confidence (&sigma;) update deterministically in real time with each simulated response.
+            </p>
+          </div>
+
+          <!-- The Interactive Simulation Workspace Container -->
+          <div class="glass-panel p-6 sm:p-8 lg:p-10 rounded-3xl relative overflow-hidden border border-white/10 shadow-2xl">
+            
+            <!-- Top Controls Row -->
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/10">
+              <div class="flex items-center gap-3">
+                <span class="p-2 rounded-xl bg-rose-500/15 text-rose-400 border border-rose-500/30">
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </span>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Item Response Theory 3PL Simulator</h3>
+                  <p class="text-xs text-slate-400">Deterministic Bayesian Kernel &bull; Continuous ability estimation</p>
+                </div>
+              </div>
+
+              <!-- Reset Button -->
+              <button onclick="resetSimulation()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:text-white transition-all">
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Reset Simulation</span>
+              </button>
+            </div>
+
+            <!-- Main Dual Column Simulator Display -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8">
+              
+              <!-- Left Column: Ability Gauge & Metrics -->
+              <div class="lg:col-span-7 flex flex-col justify-between">
+                <div>
+                  <!-- Latent Trait Header & Tier Badge -->
+                  <div class="flex items-center justify-between mb-4">
+                    <div>
+                      <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Latent Trait Ability (&theta;)</span>
+                      <p class="text-[11px] text-slate-500">Standardized z-score range: -3.00 to +3.00</p>
+                    </div>
+                    <span id="tier-badge" class="px-3 py-1 rounded-full text-xs font-bold tracking-wide bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                      Tier 2: Intermediate Analysis
+                    </span>
+                  </div>
+
+                  <!-- Big Ability Number Display -->
+                  <div class="flex items-baseline gap-3 my-2">
+                    <span id="theta-display" class="text-6xl sm:text-7xl font-black text-white tracking-tight font-mono">+0.00</span>
+                    <span id="se-display" class="text-sm font-semibold text-slate-400 font-mono">standard error &plusmn;0.75</span>
+                  </div>
+
+                  <!-- Visual Continuous Scale Gauge -->
+                  <div class="mt-6 mb-8">
+                    <div class="relative w-full h-4 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-white/10">
+                      <!-- Scale Background Gradient -->
+                      <div class="absolute inset-0 bg-gradient-to-r from-blue-700 via-purple-600 to-rose-500 opacity-60"></div>
+                      <!-- Indicator Marker -->
+                      <div id="gauge-marker" class="absolute top-0 bottom-0 w-2.5 bg-white rounded-full shadow-[0_0_12px_#fff] transition-all duration-500 ease-out" style="left: 50%;"></div>
+                    </div>
+                    <!-- Scale Axis Labels -->
+                    <div class="flex justify-between text-[11px] font-semibold text-slate-400 mt-2 px-1">
+                      <span>-3.0 Novice</span>
+                      <span>0.0 Population Mean</span>
+                      <span>+3.0 Master</span>
+                    </div>
+                  </div>
+
+                  <!-- 3 Telemetry Boxes -->
+                  <div class="grid grid-cols-3 gap-3 mb-8">
+                    <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-center">
+                      <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Standard Error (&sigma;)</div>
+                      <div id="stat-se" class="text-lg sm:text-xl font-bold font-mono text-cyan-400 mt-0.5">&plusmn;0.75</div>
+                      <div id="stat-se-label" class="text-[10px] text-slate-500">Calibrating...</div>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-center">
+                      <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Next Item Diff (b)</div>
+                      <div id="stat-diff" class="text-lg sm:text-xl font-bold font-mono text-purple-300 mt-0.5">+0.00</div>
+                      <div class="text-[10px] text-slate-500">Targeted to &theta;</div>
+                    </div>
+                    <div class="p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-center">
+                      <div class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Questions Tested</div>
+                      <div id="stat-questions" class="text-lg sm:text-xl font-bold font-mono text-rose-400 mt-0.5">0</div>
+                      <div class="text-[10px] text-slate-500">Continuous Update</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Simulation Action Buttons -->
+                <div class="p-4 rounded-2xl bg-slate-950/70 border border-white/10">
+                  <span class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                    Simulate Candidate Action on Next Question:
+                  </span>
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                    <button onclick="simulateResponse('correct')" class="px-4 py-3 rounded-xl font-bold text-xs text-emerald-950 bg-emerald-400 hover:bg-emerald-300 active:scale-95 transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-500/20">
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Correct Answer</span>
+                    </button>
+                    <button onclick="simulateResponse('incorrect')" class="px-4 py-3 rounded-xl font-bold text-xs text-rose-200 bg-rose-950 hover:bg-rose-900 border border-rose-700/50 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+                      <svg class="w-4 h-4 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      <span>Incorrect Answer</span>
+                    </button>
+                    <button onclick="simulateResponse('guess')" class="px-4 py-3 rounded-xl font-bold text-xs text-amber-200 bg-amber-950/80 hover:bg-amber-900 border border-amber-600/40 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+                      <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="8.5" cy="8.5" r="1.5"/><circle cx="15.5" cy="15.5" r="1.5"/></svg>
+                      <span>Lucky Guess (c=0.20)</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right Column: Formula Card & Real-Time Event Log -->
+              <div class="lg:col-span-5 flex flex-col gap-4">
+                
+                <!-- 3PL Mathematical Equation Card -->
+                <div class="p-5 rounded-2xl bg-black/60 border border-rose-500/20 shadow-inner">
+                  <div class="flex items-center justify-between text-xs mb-2">
+                    <span class="px-2.5 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold uppercase tracking-wider text-[10px]">
+                      3PL Logistic IRT Formula
+                    </span>
+                    <span class="text-cyan-400 font-mono text-[11px]">Deterministic core</span>
+                  </div>
+                  
+                  <div class="my-3 py-2 px-3 rounded-xl bg-slate-900/90 border border-white/5 font-mono text-sm sm:text-base text-rose-300 tracking-tight text-center">
+                    P(&theta;) = c + (1 - c) / [1 + e<sup>-a(&theta; - b)</sup>]
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-2 text-[11px] text-slate-400 font-mono text-center pt-1 border-t border-white/5">
+                    <div><span class="text-slate-500">a (discrim):</span> <strong class="text-white">1.45</strong></div>
+                    <div><span class="text-slate-500">b (diff):</span> <strong id="param-b" class="text-purple-300">+0.00</strong></div>
+                    <div><span class="text-slate-500">c (guess):</span> <strong class="text-amber-300">0.20</strong></div>
+                  </div>
+                </div>
+
+                <!-- Session Calibration Log -->
+                <div class="p-5 rounded-2xl bg-slate-950/70 border border-white/[0.08] flex-1 flex flex-col">
+                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Session Calibration Log</span>
+                    <span id="log-count" class="text-[10px] text-slate-500">0 events</span>
+                  </div>
+
+                  <div id="sim-log" class="flex-1 overflow-y-auto max-h-[220px] space-y-2 pr-1 text-xs font-mono text-slate-300">
+                    <div class="text-slate-500 italic py-6 text-center text-xs">
+                      Click an answer action below to observe the Bayesian ability update in real time.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- THE MULTI-ENGINE COGNITIVE CORE -->
+      <!-- ========================================== -->
+      <section id="architecture" class="relative py-24 bg-[#060814] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Section Tag & Header -->
+          <div class="text-center max-w-4xl mx-auto mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold tracking-wider uppercase mb-4">
+              <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              Proprietary Dual-Engine Architecture • Inimitable IP
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              The Multi-Engine Cognitive Core
+            </h2>
+            <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+              Why standard AI cannot replicate Sensighty: We decouple non-deterministic Generative AI (curriculum &amp; question synthesis) from a deterministic Bayesian psychometric kernel (Item Response Theory &amp; latent ability estimation).
+            </p>
+            <div class="mt-6">
+              <button onclick="openArchitectureModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-rose-500 to-purple-600 hover:shadow-lg hover:shadow-rose-600/25 transition-all">
+                <span>View Architecture Blueprint</span>
+                <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dual Engine Comparison Card Graphic -->
+          <div class="mb-16 p-8 rounded-3xl glass-panel border border-white/10 relative">
+            <div class="text-center mb-8">
+              <span class="text-xs font-extrabold uppercase tracking-[0.25em] text-rose-400">The Dual-Engine Core</span>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">One platform. Two engines.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-11 gap-6 items-center">
+              
+              <!-- Left Engine: Generative AI -->
+              <div class="md:col-span-5 p-6 rounded-2xl bg-rose-950/20 border border-rose-500/30 shadow-lg">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold text-[10px] uppercase tracking-wider">Generative AI</span>
+                  <span class="text-xs text-rose-400 font-semibold">Synthesis Layer</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Creates the learning</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-400 font-bold">&bull;</span>
+                    <span>Builds curricula &amp; concept DAGs for any subject on demand</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-400 font-bold">&bull;</span>
+                    <span>Writes calibrated questions &amp; Socratic micro-lessons</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-rose-400 font-bold">&bull;</span>
+                    <span>Adapts instructional tone and analogies to each learner</span>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Center Bridge / Lock -->
+              <div class="md:col-span-1 flex flex-col items-center justify-center text-center py-4">
+                <div class="w-12 h-12 rounded-2xl bg-white/[0.06] border border-white/10 flex items-center justify-center text-rose-400 shadow-lg shadow-black">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 mt-2">Decoupled</span>
+              </div>
+
+              <!-- Right Engine: Deterministic Kernel -->
+              <div class="md:col-span-5 p-6 rounded-2xl bg-purple-950/20 border border-purple-500/30 shadow-lg">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold text-[10px] uppercase tracking-wider">Deterministic Kernel</span>
+                  <span class="text-xs text-purple-400 font-semibold">Mathematical Core</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Scores the learning</h4>
+                <ul class="space-y-2.5 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-purple-400 font-bold">&bull;</span>
+                    <span>Bayesian 3PL Item Response Theory engine</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-purple-400 font-bold">&bull;</span>
+                    <span>Mathematical, 100% repeatable scoring without LLM drift</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-purple-400 font-bold">&bull;</span>
+                    <span>Estimates true latent trait ability (&theta;) with bounded error (&sigma;)</span>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <!-- Punchline Subcard -->
+            <div class="mt-8 text-center pt-6 border-t border-white/10">
+              <span class="text-base sm:text-lg font-bold text-slate-200">
+                AI never scores. <span class="text-rose-400">Mathematics does.</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- 4 Architecture Pillars -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Pillar 1 -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Zero-Subject Constraint</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Universal ontology parser ingests raw knowledge into directed acyclic graphs (DAGs) without hardcoded templates or subject limits.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-semibold text-rose-400 flex items-center gap-1">
+                <span>Any knowledge domain</span>
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 22 22 22"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Decoupled Bayesian IRT</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  AI never scores candidate responses. Mathematical 3PL IRT calibrates latent ability (&theta;), item discrimination (a), and guessing (c).
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-semibold text-purple-400 flex items-center gap-1">
+                <span>Zero prompt drift</span>
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Socratic Dynamic Remediation</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  Diagnoses localized concept failures and synthesises real-time micro-lessons, eliminating the need for pre-recorded video lectures.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-semibold text-cyan-400 flex items-center gap-1">
+                <span>Targeted micro-remediation</span>
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-2">Cryptographic Proof</h3>
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  SHA-256 hashed audit ledgers and public credential URLs ensure mastery claims are tamper-evident and mathematically verifiable.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t border-white/5 text-[11px] font-semibold text-emerald-400 flex items-center gap-1">
+                <span>Tamper-proof certificates</span>
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- INDUSTRY ARCHITECTURE COMPARISON TABLE -->
+      <!-- ========================================== -->
+      <section id="comparison" class="relative py-24 bg-gradient-to-b from-[#060814] via-[#0a0d24] to-[#060814] border-t border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-rose-400">Industry Architecture Comparison</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2">
+              Why Decoupled Intelligence Outperforms The Alternatives
+            </h2>
+            <p class="mt-4 text-slate-300">
+              Comparing traditional LMS testing engines, generic generative AI wrappers, and Sensighty's dual-core architecture.
+            </p>
+          </div>
+
+          <!-- Comparison Table Wrapper -->
+          <div class="overflow-x-auto rounded-3xl glass-panel border border-white/10 shadow-2xl">
+            <table class="w-full text-left border-collapse min-w-[760px]">
+              <thead>
+                <tr class="border-b border-white/10 bg-white/[0.02]">
+                  <th class="p-6 text-xs font-bold uppercase tracking-wider text-slate-400 w-1/4">Capability Dimension</th>
+                  <th class="p-6 text-xs font-bold uppercase tracking-wider text-slate-400 w-1/4">
+                    <div class="text-white text-sm font-bold">Traditional LMS</div>
+                    <div class="text-[11px] font-normal text-slate-500">Canvas, Moodle, Blackboard</div>
+                  </th>
+                  <th class="p-6 text-xs font-bold uppercase tracking-wider text-slate-400 w-1/4">
+                    <div class="text-white text-sm font-bold">Generic "AI Quiz" Wrappers</div>
+                    <div class="text-[11px] font-normal text-slate-500">Prompt-only ChatGPT clones</div>
+                  </th>
+                  <th class="p-6 text-xs font-bold uppercase tracking-wider text-rose-400 w-1/4 bg-rose-500/[0.08] border-l border-rose-500/20">
+                    <div class="text-rose-400 text-sm font-extrabold flex items-center gap-1.5">
+                      <span>Sensighty Dual-Core</span>
+                      <svg class="w-4 h-4 text-rose-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>
+                    </div>
+                    <div class="text-[11px] font-normal text-rose-300/80">Gen-AI Synthesis + Bayesian IRT</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/[0.06] text-sm">
+                
+                <!-- Dimension 1: Scoring Integrity -->
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="p-6 font-bold text-white flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                    <span>Scoring Integrity</span>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-red-400 font-semibold flex items-center gap-1.5">
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                      <span>Crude Percentage (0-100%)</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Blind to question difficulty; a lucky guess on a hard question counts identically to an easy one.</p>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-amber-400 font-semibold flex items-center gap-1.5">
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                      <span>Subjective LLM Grading</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Prone to prompt drift, hallucinated scoring scales, and non-deterministic grading variances.</p>
+                  </td>
+                  <td class="p-6 bg-rose-500/[0.04] border-l border-rose-500/20">
+                    <div class="text-emerald-400 font-bold flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Deterministic 3PL Bayesian IRT</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-1">Mathematical latent ability (&theta;) calibrated with item difficulty (b), discrimination (a), and guessing (c).</p>
+                  </td>
+                </tr>
+
+                <!-- Dimension 2: Curriculum Taxonomy -->
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="p-6 font-bold text-white flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                    <span>Curriculum Taxonomy</span>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-slate-300 font-semibold">Manual Question Banks</div>
+                    <p class="text-xs text-slate-500 mt-1">Requires weeks of manual faculty drafting; static questions suffer rapid leakage and fatigue.</p>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-slate-300 font-semibold">Shallow One-Shot Prompts</div>
+                    <p class="text-xs text-slate-500 mt-1">Generates flat lists of questions with no psychometric scales or prerequisite graph structure.</p>
+                  </td>
+                  <td class="p-6 bg-rose-500/[0.04] border-l border-rose-500/20">
+                    <div class="text-emerald-400 font-bold flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Universal Subject-as-Data</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-1">Automated synthesis of multi-tier hierarchies: Subject &rarr; Domains &rarr; Topics &rarr; Concepts with prerequisites.</p>
+                  </td>
+                </tr>
+
+                <!-- Dimension 3: Adaptive Examination -->
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="p-6 font-bold text-white flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                    <span>Adaptive Examination</span>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-red-400 font-semibold">Fixed Linear Tests</div>
+                    <p class="text-xs text-slate-500 mt-1">Every candidate answers the exact same sequence regardless of individual proficiency.</p>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-amber-400 font-semibold">Random Prompt Variants</div>
+                    <p class="text-xs text-slate-500 mt-1">Arbitrary difficulty shifts with no psychometric calibration or ability estimation.</p>
+                  </td>
+                  <td class="p-6 bg-rose-500/[0.04] border-l border-rose-500/20">
+                    <div class="text-emerald-400 font-bold flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Real-Time CAT Calibration</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-1">Next item dynamically selected to match candidate cognitive frontier, halving exam duration.</p>
+                  </td>
+                </tr>
+
+                <!-- Dimension 4: Remediation & Retest -->
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="p-6 font-bold text-white flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <span>Remediation &amp; Retest</span>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-slate-300 font-semibold">Static Answer Key</div>
+                    <p class="text-xs text-slate-500 mt-1">Learners read generic textbook chapters; retests reuse identical questions (testing memory, not mastery).</p>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-slate-300 font-semibold">Generic Summary Parrots</div>
+                    <p class="text-xs text-slate-500 mt-1">Outputs high-level text explanations without structured diagnosis of localized misconceptions.</p>
+                  </td>
+                  <td class="p-6 bg-rose-500/[0.04] border-l border-rose-500/20">
+                    <div class="text-emerald-400 font-bold flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Socratic Micro-Lessons &amp; Audio</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-1">Targeted remediation loops for weak concepts, followed by focused retests with guaranteed non-repeating items.</p>
+                  </td>
+                </tr>
+
+                <!-- Dimension 5: Credential Verification -->
+                <tr class="hover:bg-white/[0.02] transition-colors">
+                  <td class="p-6 font-bold text-white flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>Credential Verification</span>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-red-400 font-semibold">Unverified Static PDFs</div>
+                    <p class="text-xs text-slate-500 mt-1">Easily edited or fabricated; zero cryptographic connection to actual psychometric performance.</p>
+                  </td>
+                  <td class="p-6 text-slate-400">
+                    <div class="text-red-400 font-semibold">None</div>
+                    <p class="text-xs text-slate-500 mt-1">No formal credentialing, audit trail, or verification infrastructure.</p>
+                  </td>
+                  <td class="p-6 bg-rose-500/[0.04] border-l border-rose-500/20">
+                    <div class="text-emerald-400 font-bold flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Cryptographic SHA-256 Proof</span>
+                    </div>
+                    <p class="text-xs text-slate-300 mt-1">Permanent public verification portal, 1-click LinkedIn export, and immutable audit logs.</p>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- STAKEHOLDER SOLUTIONS -->
+      <!-- ========================================== -->
+      <section id="stakeholders" class="relative py-24 bg-[#060814]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-rose-400">Tailored For Every Stakeholder</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2">
+              How Sensighty Empowers Your Entire Organization
+            </h2>
+            <p class="mt-4 text-slate-300">
+              Engineered from first principles with tailored workflows, analytics, and interfaces for learners, subject matter experts, and enterprise operators.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Stakeholder 1: Learners & Candidates -->
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-cyan-500 flex flex-col justify-between">
+              <div>
+                <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 flex items-center justify-center mb-6">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">Learners &amp; Candidates</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Hyper-Personalized Adaptive Growth</h3>
+                <p class="text-sm text-slate-300 mb-6">
+                  Experience tailored testing that meets you at your exact cognitive frontier—no redundant questions, no guesswork.
+                </p>
+
+                <ul class="space-y-3.5 text-xs text-slate-300">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-cyan-400 font-bold">&check;</span>
+                    <div><strong>3PL IRT Calibration:</strong> Questions dynamically scale in difficulty based on response accuracy and velocity.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-cyan-400 font-bold">&check;</span>
+                    <div><strong>Instant Socratic Remediation:</strong> Interactive micro-lessons with audio narration target your exact misconceptions.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-cyan-400 font-bold">&check;</span>
+                    <div><strong>Verified Achievement Badges:</strong> Earn unshakeable psychometric credentials awarded deterministically.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-cyan-400 font-bold">&check;</span>
+                    <div><strong>Zero Repetition (&sect;1, &sect;20):</strong> Retests always feature brand-new, unseen questions.</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <button onclick="openCandidateDemoModal()" class="w-full py-3 rounded-xl font-bold text-xs text-cyan-950 bg-cyan-400 hover:bg-cyan-300 transition-all flex items-center justify-center gap-1.5">
+                  <span>Explore Candidate Portal</span>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Stakeholder 2: Educators & Evaluators -->
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-rose-500 flex flex-col justify-between">
+              <div>
+                <div class="w-14 h-14 rounded-2xl bg-rose-500/10 border border-rose-500/25 text-rose-400 flex items-center justify-center mb-6">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-1">Educators &amp; Evaluators</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Subject-as-Data Taxonomy &amp; Quality</h3>
+                <p class="text-sm text-slate-300 mb-6">
+                  Define entire curriculum hierarchies in seconds and harness automated quality pipelines for psychometric item banks.
+                </p>
+
+                <ul class="space-y-3.5 text-xs text-slate-300">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-rose-400 font-bold">&check;</span>
+                    <div><strong>Automated Taxonomy Synthesis:</strong> Create Domains, Topics, Concepts, and Learning Objectives with 1 click.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-rose-400 font-bold">&check;</span>
+                    <div><strong>7-Step Question Verification:</strong> Rigorous syntax, ambiguity, difficulty, and answer-key validation (&sect;15).</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-rose-400 font-bold">&check;</span>
+                    <div><strong>Human-in-the-Loop Moderation:</strong> Review, approve, reject, or tune AI-generated items before delivery.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-rose-400 font-bold">&check;</span>
+                    <div><strong>Granular Concept Telemetry:</strong> Uncover localized misconceptions that high overall test scores hide (&sect;62).</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <button onclick="openCatalogModal()" class="w-full py-3 rounded-xl font-bold text-xs text-white bg-gradient-to-r from-rose-500 to-purple-600 hover:shadow-lg hover:shadow-rose-600/30 transition-all flex items-center justify-center gap-1.5">
+                  <span>Open Question Moderation</span>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Stakeholder 3: System Admins & Enterprises -->
+            <div class="glass-card p-8 rounded-3xl border-t-4 border-t-emerald-500 flex flex-col justify-between">
+              <div>
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 flex items-center justify-center mb-6">
+                  <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">System Admins &amp; Enterprise</div>
+                <h3 class="text-2xl font-bold text-white mb-4">Enterprise Governance &amp; Security</h3>
+                <p class="text-sm text-slate-300 mb-6">
+                  Full-spectrum operational governance, zero-tamper security ledgers, and granular role-based authorization out of the box.
+                </p>
+
+                <ul class="space-y-3.5 text-xs text-slate-300">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 font-bold">&check;</span>
+                    <div><strong>Zero-Tamper Audit Ledger:</strong> Cryptographic SHA-256 hashed audit trail recording every security event.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 font-bold">&check;</span>
+                    <div><strong>Granular RBAC Matrix:</strong> 22 system permissions and 6 roles (Super Admin, Admin, Instructor, Evaluator, Candidate, User).</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 font-bold">&check;</span>
+                    <div><strong>Multi-Device Session Control:</strong> Track active browser sessions and remotely revoke compromised devices.</div>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 font-bold">&check;</span>
+                    <div><strong>Live Operations Command Center:</strong> Real-time engine health, database connectivity, and telemetry metrics.</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-white/10">
+                <button onclick="openAdminModal()" class="w-full py-3 rounded-xl font-bold text-xs text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all flex items-center justify-center gap-1.5">
+                  <span>Launch Admin Command Center</span>
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- THE ADAPTIVE LIFECYCLE OPERATES -->
+      <!-- ========================================== -->
+      <section id="lifecycle" class="relative py-24 bg-gradient-to-b from-[#060814] via-[#090b20] to-[#060814] border-t border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-rose-400">Closed-Loop Learning</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2">
+              How The Adaptive Lifecycle Operates
+            </h2>
+            <p class="mt-4 text-slate-300">
+              A closed-loop psychometric pipeline that diagnoses proficiency and remediates localized knowledge gaps.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            
+            <!-- Step 1 -->
+            <div class="glass-card p-6 rounded-2xl relative">
+              <span class="text-4xl font-black text-rose-500/20 absolute top-4 right-4">01</span>
+              <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Curriculum Synthesis</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Dynamically maps domain into a hierarchical knowledge tree: Subject &rarr; Domains &rarr; Topics &rarr; Concepts with prerequisites.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="glass-card p-6 rounded-2xl relative">
+              <span class="text-4xl font-black text-purple-500/20 absolute top-4 right-4">02</span>
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Adaptive Examination</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Items adapt in real time across difficulty tiers based on candidate response velocity and IRT accuracy calibration.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="glass-card p-6 rounded-2xl relative">
+              <span class="text-4xl font-black text-cyan-500/20 absolute top-4 right-4">03</span>
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Bayesian Diagnostics</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Computes multilevel mastery vectors per concept with confidence weights. High aggregate scores cannot mask localized weaknesses.
+              </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="glass-card p-6 rounded-2xl relative">
+              <span class="text-4xl font-black text-emerald-500/20 absolute top-4 right-4">04</span>
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Targeted Retesting</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Autonomously synthesises Socratic micro-lessons and audio walkthroughs, then triggers a focused retest round using non-repeating items.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- PUBLIC CERTIFICATIONS FOR VERIFIED SCHOLARS -->
+      <!-- ========================================== -->
+      <section id="credentials" class="relative py-24 bg-[#060814]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-rose-500/30 shadow-2xl relative overflow-hidden">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              
+              <!-- Left Info Details -->
+              <div class="lg:col-span-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold mb-4">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  New Feature &bull; Shareable Academic &amp; Professional Credentials
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                  Online Public Certifications for &ldquo;Verified Scholars&rdquo;
+                </h2>
+                
+                <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+                  When learners pass formal psychometric certification requirements, Sensighty generates a permanent, publicly accessible certificate with 1-click LinkedIn export, tamper-proof SHA-256 validation, and print/PDF formatting.
+                </p>
+
+                <div class="mt-8 grid grid-cols-2 gap-4">
+                  <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/5">
+                    <div class="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
+                      <svg class="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                      <span>Add to LinkedIn Profile</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">1-click direct sync to candidate LinkedIn profiles with pre-filled certification metadata.</p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/5">
+                    <div class="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
+                      <svg class="w-4 h-4 text-rose-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                      <span>Print &amp; High-Res PDF</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">Optimized landscape print stylesheet generates clean, executive-quality physical certificates.</p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/5">
+                    <div class="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
+                      <svg class="w-4 h-4 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                      <span>Cryptographic SHA-256</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">Deterministic verification hash guarantees zero tampering; mobile QR codes allow instant physical scan-to-verify.</p>
+                  </div>
+                  <div class="p-3.5 rounded-xl bg-white/[0.04] border border-white/5">
+                    <div class="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
+                      <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                      <span>Deterministic Gamification</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400">Part of our 6-tier badge system (&sect;31, &sect;19) evaluated through verified audit records with zero duplicate awards.</p>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                  <button onclick="openVerifyModal()" class="px-5 py-2.5 rounded-full text-xs font-bold text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all flex items-center gap-2">
+                    <span>View Sample Certificate</span>
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </button>
+                  <button onclick="openVerifyModal()" class="px-5 py-2.5 rounded-full text-xs font-semibold text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 transition-all flex items-center gap-2">
+                    <span>Verification Portal</span>
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Right Mock Certificate Graphic Card -->
+              <div class="lg:col-span-6 flex justify-center">
+                <div class="w-full max-w-md bg-white text-slate-900 rounded-2xl p-6 sm:p-7 shadow-2xl relative border-4 border-slate-200/80">
+                  
+                  <!-- Top Certificate Header -->
+                  <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-4">
+                    <div class="flex items-center gap-2">
+                      <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-rose-500 to-purple-600 flex items-center justify-center text-white">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+                      </div>
+                      <span class="font-extrabold text-sm tracking-tight text-slate-900">Sensighty</span>
+                    </div>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-slate-500">Verified Certificate</span>
+                  </div>
+
+                  <!-- Certificate Title -->
+                  <div class="text-center my-4">
+                    <h4 class="text-xl font-extrabold text-slate-900">Certificate of Mastery</h4>
+                    <p class="text-xs text-slate-600 mt-1">Awarded for demonstrated proficiency &bull; Data Structures</p>
+                  </div>
+
+                  <!-- Verified Stamp Graphic -->
+                  <div class="absolute right-6 top-20 pointer-events-none">
+                    <div class="w-20 h-20 rounded-full border-2 border-emerald-600 text-emerald-600 flex items-center justify-center -rotate-12 uppercase text-[10px] font-black tracking-widest opacity-80">
+                      VERIFIED &check;
+                    </div>
+                  </div>
+
+                  <!-- Metrics Display Strip -->
+                  <div class="grid grid-cols-3 gap-2 bg-slate-100 p-3 rounded-xl text-center my-4">
+                    <div>
+                      <div class="text-[9px] uppercase font-bold text-slate-500">Ability (&theta;)</div>
+                      <div class="text-base font-extrabold font-mono text-slate-900">+1.42</div>
+                    </div>
+                    <div>
+                      <div class="text-[9px] uppercase font-bold text-slate-500">Tier</div>
+                      <div class="text-base font-extrabold text-rose-600">Mastery</div>
+                    </div>
+                    <div>
+                      <div class="text-[9px] uppercase font-bold text-slate-500">Issued</div>
+                      <div class="text-base font-extrabold text-slate-900">2026</div>
+                    </div>
+                  </div>
+
+                  <!-- Cryptographic Hash Box -->
+                  <div class="p-2.5 rounded-lg bg-slate-900 text-slate-300 font-mono text-[9px] break-all leading-tight">
+                    <span class="text-emerald-400 font-bold">sha256: </span>
+                    9f3c2a7be41d08c65f7a91e2d4b3c0a8f16e5d27b9c84a03e1f6d25c7b8a9e40
+                  </div>
+
+                  <div class="mt-4 flex items-center justify-between text-[10px] text-slate-500 pt-3 border-t border-slate-200">
+                    <span>A Product of NEXMANCER</span>
+                    <span class="text-emerald-600 font-semibold">&bull; Immutable Ledger Validated</span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- FEATURED SUBJECT CATALOG -->
+      <!-- ========================================== -->
+      <section id="catalog" class="relative py-24 bg-[#060814] border-t border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-rose-400">Universal Knowledge Ingestion</span>
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">
+                Featured Subject Catalog
+              </h2>
+              <p class="mt-2 text-sm text-slate-400">
+                Pre-configured domain curricula ready for immediate adaptive evaluation.
+              </p>
+            </div>
+            
+            <button onclick="openCatalogModal()" class="mt-4 md:mt-0 text-sm font-semibold text-rose-400 hover:text-rose-300 flex items-center gap-1 group">
+              <span>View all subjects (10)</span>
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+          <!-- Subject Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Subject 1: Python Practical -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                    30 questions
+                  </span>
+                  <span class="text-xs text-slate-500 font-mono">ID: py-practical</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Python Practical</h3>
+                <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed">
+                  What the Practical Assessment Covers: Candidates must successfully implement and execute code across four real-world domains.
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span class="text-xs text-slate-400">1 Domain &bull; 6 Topics</span>
+                <button onclick="startExamMock('Python Practical')" class="px-4 py-2 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500 active:scale-95 transition-all flex items-center gap-1.5 shadow-md shadow-rose-600/20">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Start Exam</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Subject 2: CAAIP -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between border-rose-500/30">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-rose-500/15 text-rose-300 border border-rose-500/30">
+                    47 questions
+                  </span>
+                  <span class="text-xs text-slate-500 font-mono">ID: caaip-core</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">
+                  Certified Agentic AI Professional (CAAIP): Foundations and Multi-Agent Orchestration
+                </h3>
+                <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed">
+                  The assessment is divided into six core knowledge domains: Core Agent Architecture and Design Patterns, Autonomous Reasoning, and Tool Grounding.
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span class="text-xs text-slate-400">1 Domain &bull; 8 Topics</span>
+                <button onclick="startExamMock('CAAIP Multi-Agent Orchestration')" class="px-4 py-2 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500 active:scale-95 transition-all flex items-center gap-1.5 shadow-md shadow-rose-600/20">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Start Exam</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Subject 3: Library Science Basic -->
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                    35 questions
+                  </span>
+                  <span class="text-xs text-slate-500 font-mono">ID: lib-sci-01</span>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Library science basic</h3>
+                <p class="text-xs text-slate-300 line-clamp-3 leading-relaxed">
+                  Subject Name: Library Science Basics Description: An introductory overview of information organization, metadata schemas, and cataloging.
+                </p>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span class="text-xs text-slate-400">1 Domain &bull; 5 Topics</span>
+                <button onclick="startExamMock('Library Science Basic')" class="px-4 py-2 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500 active:scale-95 transition-all flex items-center gap-1.5 shadow-md shadow-rose-600/20">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>Start Exam</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- ENTERPRISE ARCHITECTURAL GUARANTEES -->
+      <!-- ========================================== -->
+      <section class="relative py-24 bg-[#060814] border-t border-white/[0.06]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-rose-400">Architectural Commitments</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-2">
+              Enterprise Architectural Guarantees
+            </h2>
+            <p class="mt-4 text-slate-300">
+              Built from first principles for reliability, auditability, and psychometric fidelity.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Subject as Data Architecture</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                No hardcoded subject logic exists anywhere. Physics, Programming, Law, or Medicine run through the identical psychometric engine.
+              </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="12 2 2 22 22 22"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Multilevel Bayesian Mastery</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Tracks mastery per Concept, Topic, and Subject with confidence metrics. A single lucky guess cannot mark a candidate as an expert without proof.
+              </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Targeted Remediation &amp; Retest</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                High overall scores cannot hide localized misconceptions. Failed concepts trigger interactive Socratic modules and targeted retests.
+              </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">7-Step Quality Pipeline (&sect;15, &sect;6)</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Strict multi-tier verification: JSON schema check, answer key verification, code syntax sandbox, ambiguity check, duplicate filter, and calibration.
+              </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Configurable Psychometrics</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Fine-tune test parameters globally or per-subject: questions per round, passing benchmark threshold, remediation triggers, and AI provider selection.
+              </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+              </div>
+              <h3 class="text-base font-bold text-white mb-2">Deterministic Gamification</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Motivational gamification mechanics: dynamic badge unlocks, learning streaks, and radar visualizations backed by cryptographic proof (&sect;19).
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- FINAL HIGH-IMPACT CALL TO ACTION -->
+      <!-- ========================================== -->
+      <section class="relative py-24 bg-gradient-to-b from-[#060814] to-[#04060f] overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="glass-panel p-8 sm:p-14 rounded-3xl border border-rose-500/30 text-center relative overflow-hidden shadow-2xl">
+            
+            <div class="relative z-10 max-w-3xl mx-auto">
+              <span class="text-xs font-bold uppercase tracking-[0.25em] text-rose-400">
+                Ready to Experience Adaptive Intelligence?
+              </span>
+              <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mt-3 mb-5">
+                Launch an adaptive assessment or create a brand-new subject in seconds.
+              </h2>
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                Test candidate workflows, evaluate psychometric shift graphs, or inspect question yield telemetry inside the administrative portal.
+              </p>
+
+              <div class="flex flex-wrap items-center justify-center gap-4">
+                <button onclick="openCatalogModal()" class="px-8 py-3.5 rounded-full text-sm font-bold text-white bg-gradient-to-r from-[#ff006e] via-[#e11d48] to-[#9333ea] hover:shadow-xl hover:shadow-rose-600/40 hover:scale-105 active:scale-95 transition-all">
+                  Start Assessment Now
+                </button>
+                <button onclick="openAdminModal()" class="px-7 py-3.5 rounded-full text-sm font-semibold text-slate-200 glass-card hover:bg-white/10 active:scale-95 transition-all">
+                  Open Admin Control Center
+                </button>
+                <button onclick="openVerifyModal()" class="px-7 py-3.5 rounded-full text-sm font-semibold text-slate-300 bg-white/5 border border-white/10 hover:bg-white/10 active:scale-95 transition-all">
+                  View Achievement Badges
+                </button>
+              </div>
+
+              <div class="mt-10 flex items-center justify-center gap-3 text-xs text-slate-400">
+                <span class="text-slate-500">ENGINEERED BY</span>
+                <div class="flex items-center gap-1.5 text-cyan-400 font-bold tracking-wider">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5" />
+                    <polyline points="10 8 14 12 10 16" />
+                  </svg>
+                  <span>NEXMANCER</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- COMPREHENSIVE FOOTER -->
+    <!-- ========================================== -->
+    <footer class="relative z-10 border-t border-white/[0.08] bg-[#04060f] pt-16 pb-12 text-slate-400 text-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.06]">
+          
+          <!-- Column 1: Brand Info -->
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-rose-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-rose-600/30">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z"/></svg>
+              </div>
+              <span class="text-lg font-bold text-white tracking-tight">Sensighty</span>
+            </div>
+            
+            <p class="text-slate-400 leading-relaxed text-xs max-w-sm mb-4">
+              Universal Adaptive Assessment &amp; Learning Engine.<br/>
+              <span class="text-rose-400 font-semibold">Assess &bull; Understand &bull; Adapt &bull; Master</span>
+            </p>
+            <p class="text-slate-500 text-[11px] leading-relaxed max-w-sm mb-6">
+              Production-grade universal psychometric assessment, computerized adaptive testing, and AI-powered personalized learning platform.
+            </p>
+
+            <!-- Compliance Badges -->
+            <div class="flex flex-wrap gap-2 text-[10px] font-bold text-slate-400">
+              <span class="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10">GDPR COMPLIANT</span>
+              <span class="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10">CCPA READY</span>
+              <span class="px-2 py-0.5 rounded bg-white/[0.04] border border-white/10">WCAG 2.1 AA</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Adaptive Product -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Adaptive Product</h4>
+            <ul class="space-y-2.5">
+              <li><a href="#catalog" class="hover:text-rose-400 transition-colors">Browse Subjects</a></li>
+              <li><a href="#simulator" class="hover:text-rose-400 transition-colors">3PL IRT Simulator</a></li>
+              <li><a href="#credentials" class="hover:text-rose-400 transition-colors">Achievement Badges</a></li>
+              <li><a href="#credentials" class="hover:text-rose-400 transition-colors">Public Certifications</a></li>
+              <li><a href="#stakeholders" class="hover:text-rose-400 transition-colors">Candidate Guide</a></li>
+              <li><a href="#architecture" class="hover:text-rose-400 transition-colors">Plans &amp; Pricing</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Trust & Legal Policies -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Trust &amp; Legal Policies</h4>
+            <ul class="space-y-2.5">
+              <li><a href="#architecture" class="hover:text-rose-400 transition-colors">About Sensighty</a></li>
+              <li><a href="#" class="hover:text-rose-400 transition-colors">Contact &amp; Support SLA</a></li>
+              <li><a href="#" class="hover:text-rose-400 transition-colors">Privacy Policy (GDPR/CCPA)</a></li>
+              <li><a href="#" class="hover:text-rose-400 transition-colors">Terms &amp; Conditions</a></li>
+              <li><a href="#" class="hover:text-rose-400 transition-colors">Cancellation &amp; Refund Policy</a></li>
+              <li><a href="#" class="hover:text-rose-400 transition-colors">Cookie Disclosures</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Architecture & Governance -->
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200 mb-4">Architecture &amp; Governance</h4>
+            <ul class="space-y-2.5">
+              <li><button onclick="openAdminModal()" class="hover:text-rose-400 transition-colors text-left">Admin Control Center</button></li>
+              <li><a href="#simulator" class="hover:text-rose-400 transition-colors">Psychometric Analytics (&sect;49)</a></li>
+              <li><a href="#credentials" class="hover:text-rose-400 transition-colors">Compliance Audit Logs (&sect;50)</a></li>
+              <li><a href="#architecture" class="hover:text-rose-400 transition-colors">Patent &amp; IP Disclosures</a></li>
+              <li><a href="#architecture" class="hover:text-rose-400 transition-colors">System Architecture</a></li>
+              <li><a href="https://nexmancer.com" target="_blank" rel="noopener" class="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1">
+                <span>NEXMANCER Portal</span>
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Copyright & Corporate Attribution -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div>
+            &copy; 2026 Sensighty. All rights reserved. A product of <span class="text-slate-300 font-semibold">NEXMANCER</span>.
+          </div>
+          <div class="flex items-center gap-6">
+            <a href="#" class="hover:text-slate-300">Privacy</a>
+            <a href="#" class="hover:text-slate-300">Terms</a>
+            <a href="#" class="hover:text-slate-300">Refunds</a>
+            <a href="#" class="hover:text-slate-300">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- INTERACTIVE MODALS -->
+    <!-- ========================================== -->
+
+    <!-- Modal 1: Explore Subjects Modal -->
+    <div id="catalog-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+      <div class="relative w-full max-w-3xl glass-panel border border-white/15 rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Full Subject Catalog</h3>
+              <p class="text-xs text-slate-400">10 Active Subject Domains &bull; Ingested as Subject-as-Data</p>
+            </div>
+          </div>
+          <button onclick="closeCatalogModal()" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Item 1 -->
+          <div class="p-4 rounded-xl bg-white/[0.04] border border-white/5 flex items-center justify-between hover:border-rose-500/30 transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-white font-bold text-sm">Python Practical</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/10 text-blue-300 font-semibold">30 questions</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Algorithm design, list comprehensions, concurrency, and OOP.</p>
+            </div>
+            <button onclick="closeCatalogModal(); startExamMock('Python Practical');" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500">Start</button>
+          </div>
+          <!-- Item 2 -->
+          <div class="p-4 rounded-xl bg-white/[0.04] border border-rose-500/20 flex items-center justify-between hover:border-rose-500/40 transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-white font-bold text-sm">Certified Agentic AI Professional (CAAIP)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-semibold">47 questions</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Multi-agent patterns, tool grounding, autonomous deliberation, evaluation benchmarks.</p>
+            </div>
+            <button onclick="closeCatalogModal(); startExamMock('CAAIP Multi-Agent Orchestration');" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500">Start</button>
+          </div>
+          <!-- Item 3 -->
+          <div class="p-4 rounded-xl bg-white/[0.04] border border-white/5 flex items-center justify-between hover:border-rose-500/30 transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-white font-bold text-sm">Library science basic</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-purple-500/10 text-purple-300 font-semibold">35 questions</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Information classification, taxonomy schemas, digital preservation.</p>
+            </div>
+            <button onclick="closeCatalogModal(); startExamMock('Library Science Basic');" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500">Start</button>
+          </div>
+          <!-- Item 4 -->
+          <div class="p-4 rounded-xl bg-white/[0.04] border border-white/5 flex items-center justify-between hover:border-rose-500/30 transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-white font-bold text-sm">Psychometric Item Response Theory</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 font-semibold">40 questions</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">1PL/2PL/3PL Rasch modeling, latent ability estimation, Fisher information curves.</p>
+            </div>
+            <button onclick="closeCatalogModal(); startExamMock('Psychometric IRT');" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500">Start</button>
+          </div>
+          <!-- Item 5 -->
+          <div class="p-4 rounded-xl bg-white/[0.04] border border-white/5 flex items-center justify-between hover:border-rose-500/30 transition-all">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-white font-bold text-sm">Healthcare AI &amp; Clinical Informatics</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 font-semibold">38 questions</span>
+              </div>
+              <p class="text-xs text-slate-400 mt-0.5">Diagnostic modeling, HIPAA/GDPR clinical compliance, EHR integration.</p>
+            </div>
+            <button onclick="closeCatalogModal(); startExamMock('Healthcare AI');" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-white bg-rose-600 hover:bg-rose-500">Start</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Verify Credentials Modal -->
+    <div id="verify-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+      <div class="relative w-full max-w-xl glass-panel border border-white/15 rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Cryptographic Certificate Verifier</h3>
+              <p class="text-xs text-slate-400">SHA-256 Ledger Authenticity Check</p>
+            </div>
+          </div>
+          <button onclick="closeVerifyModal()" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-2">Enter Candidate SHA-256 Hash or Certificate ID:</label>
+            <div class="flex gap-2">
+              <input id="hash-input" type="text" value="9f3c2a7be41d08c65f7a91e2d4b3c0a8f16e5d27b9c84a03e1f6d25c7b8a9e40" class="flex-1 px-4 py-2.5 rounded-xl bg-slate-950 border border-white/10 text-xs font-mono text-slate-200 focus:outline-none focus:border-rose-400" />
+              <button onclick="runVerificationCheck()" class="px-4 py-2.5 rounded-xl font-bold text-xs text-emerald-950 bg-emerald-400 hover:bg-emerald-300">Verify</button>
+            </div>
+          </div>
+
+          <div id="verification-result" class="p-4 rounded-2xl bg-emerald-950/30 border border-emerald-500/30">
+            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm mb-2">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Record Authenticated on Public Ledger</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs text-slate-300">
+              <div><span class="text-slate-500">Candidate:</span> <strong>Dr. Elena Rostova</strong></div>
+              <div><span class="text-slate-500">Subject:</span> <strong>CAAIP Professional</strong></div>
+              <div><span class="text-slate-500">Latent Ability (&theta;):</span> <strong class="text-rose-400 font-mono">+1.42</strong></div>
+              <div><span class="text-slate-500">Status:</span> <strong class="text-emerald-400">Mastery Certified</strong></div>
+            </div>
+          </div>
+
+          <div class="pt-4 flex gap-3">
+            <button onclick="navigator.clipboard.writeText('https://sensighty.nexmancer.com/verify/9f3c2a7be41d08c65f7a91e2d4b3c0a8f16e5d27b9c84a03e1f6d25c7b8a9e40'); alert('Public verification URL copied to clipboard!');" class="w-full py-2.5 rounded-xl text-xs font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10">
+              Copy Public Verification Link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Candidate Dashboard Preview -->
+    <div id="candidate-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+      <div class="relative w-full max-w-2xl glass-panel border border-white/15 rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Candidate Diagnostic Dashboard</h3>
+              <p class="text-xs text-slate-400">Live Psychometric Radar &bull; Active Cognitive Frontier</p>
+            </div>
+          </div>
+          <button onclick="closeCandidateDemoModal()" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-between">
+            <div>
+              <span class="text-xs font-semibold text-slate-400">Active Candidate:</span>
+              <div class="text-base font-bold text-white">Demo Candidate &bull; #CAND-8942</div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+              Overall &theta;: +1.42 (Tier 3)
+            </span>
+          </div>
+
+          <div class="space-y-2.5">
+            <div class="text-xs font-bold text-slate-300 uppercase tracking-wider">Concept Vector Breakdown:</div>
+            
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-white/5">
+              <div class="flex justify-between text-xs font-semibold text-slate-200 mb-1">
+                <span>Core Agent Architecture</span>
+                <span class="text-emerald-400 font-mono">94% Mastery (&theta;: +1.85)</span>
+              </div>
+              <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-emerald-500 rounded-full" style="width: 94%"></div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-white/5">
+              <div class="flex justify-between text-xs font-semibold text-slate-200 mb-1">
+                <span>Autonomous Reasoning &amp; Planning</span>
+                <span class="text-cyan-400 font-mono">82% Mastery (&theta;: +1.20)</span>
+              </div>
+              <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-cyan-500 rounded-full" style="width: 82%"></div>
+              </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-950/60 border border-white/5">
+              <div class="flex justify-between text-xs font-semibold text-slate-200 mb-1">
+                <span>Tool Grounding &amp; Sandbox Safety</span>
+                <span class="text-amber-400 font-mono">61% Socratic Micro-Lesson Scheduled</span>
+              </div>
+              <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-amber-500 rounded-full" style="width: 61%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs text-slate-300">
+            <strong class="text-rose-400">Socratic Retest Triggered:</strong> A 3-question adaptive micro-remediation is queued for &ldquo;Tool Grounding &amp; Sandbox Safety&rdquo; with zero recycled questions.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Admin Control Center Preview -->
+    <div id="admin-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+      <div class="relative w-full max-w-2xl glass-panel border border-white/15 rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Enterprise Admin Command Center</h3>
+              <p class="text-xs text-slate-400">System Telemetry &bull; RBAC Governance &bull; 3PL Calibration</p>
+            </div>
+          </div>
+          <button onclick="closeAdminModal()" class="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/5">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="space-y-4 text-xs text-slate-300">
+          <div class="grid grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-950 border border-white/10 text-center">
+              <span class="text-slate-500 uppercase text-[10px] font-bold">Engine Throughput</span>
+              <div class="text-lg font-bold text-emerald-400 mt-1">2,480 req/sec</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950 border border-white/10 text-center">
+              <span class="text-slate-500 uppercase text-[10px] font-bold">Audit Ledger</span>
+              <div class="text-lg font-bold text-cyan-400 mt-1">100% Sealed</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-950 border border-white/10 text-center">
+              <span class="text-slate-500 uppercase text-[10px] font-bold">Active Roles</span>
+              <div class="text-lg font-bold text-purple-400 mt-1">6 RBAC Roles</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
+            <div class="font-bold text-white">Active Cryptographic Security Audit Log:</div>
+            <div class="font-mono text-[11px] text-slate-400 space-y-1">
+              <div>[SEC-001] SHA-256 Ledger Block #41829 validated by Nexmancer Guard.</div>
+              <div>[AUTH-04] Candidate session CAND-8942 issued IRT Token &theta;=1.42.</div>
+              <div>[RBAC-22] 22 System Permissions enforced across all API endpoints.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <!-- ========================================== -->
+    <script>
+      // 3PL Item Response Theory Simulator State
+      const state = {
+        theta: 0.00,
+        se: 0.75,
+        b: 0.00,
+        a: 1.45,
+        c: 0.20,
+        questions: 0,
+        history: []
+      };
+
+      // Tiers mapping based on theta (-3.0 to +3.0)
+      function getTier(theta) {
+        if (theta < -1.5) return { name: "Tier 1: Foundational Novice", class: "bg-slate-500/20 text-slate-300 border-slate-500/30" };
+        if (theta < 0.0) return { name: "Tier 2: Developing Competency", class: "bg-blue-500/20 text-blue-300 border-blue-500/30" };
+        if (theta < 1.2) return { name: "Tier 2: Intermediate Analysis", class: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30" };
+        if (theta < 2.0) return { name: "Tier 3: Advanced Mastery", class: "bg-rose-500/20 text-rose-300 border-rose-500/30" };
+        return { name: "Tier 4: Elite Subject Authority", class: "bg-purple-500/20 text-purple-300 border-purple-500/30" };
+      }
+
+      function updateSimulationUI() {
+        const thetaDisp = (state.theta >= 0 ? "+" : "") + state.theta.toFixed(2);
+        document.getElementById('theta-display').innerText = thetaDisp;
+        document.getElementById('se-display').innerText = `standard error ±${state.se.toFixed(2)}`;
+        document.getElementById('stat-se').innerText = `±${state.se.toFixed(2)}`;
+        document.getElementById('stat-diff').innerText = (state.b >= 0 ? "+" : "") + state.b.toFixed(2);
+        document.getElementById('param-b').innerText = (state.b >= 0 ? "+" : "") + state.b.toFixed(2);
+        document.getElementById('stat-questions').innerText = state.questions;
+        document.getElementById('log-count').innerText = `${state.questions} events`;
+
+        // Update SE calibration label
+        const seLabel = document.getElementById('stat-se-label');
+        if (state.questions === 0) seLabel.innerText = "Calibrating...";
+        else if (state.se > 0.40) seLabel.innerText = "Converging...";
+        else seLabel.innerText = "High Psychometric Confidence";
+
+        // Update Tier badge
+        const tier = getTier(state.theta);
+        const tierBadge = document.getElementById('tier-badge');
+        tierBadge.innerText = tier.name;
+        tierBadge.className = `px-3 py-1 rounded-full text-xs font-bold tracking-wide border ${tier.class}`;
+
+        // Update Gauge Marker position: range -3.0 to +3.0 maps to 0% - 100%
+        const clampedTheta = Math.max(-3.0, Math.min(3.0, state.theta));
+        const percentage = ((clampedTheta + 3.0) / 6.0) * 100;
+        document.getElementById('gauge-marker').style.left = `calc(${percentage}% - 5px)`;
+
+        // Render Session Log
+        const logContainer = document.getElementById('sim-log');
+        if (state.history.length === 0) {
+          logContainer.innerHTML = `<div class="text-slate-500 italic py-6 text-center text-xs">Click an answer action below to observe the Bayesian ability update in real time.</div>`;
+        } else {
+          logContainer.innerHTML = state.history.map(item => `
+            <div class="p-2 rounded-lg ${item.isCorrect ? 'bg-emerald-950/30 border border-emerald-500/20 text-emerald-200' : 'bg-rose-950/30 border border-rose-500/20 text-rose-200'}">
+              <div class="flex justify-between items-center text-[10px]">
+                <span class="font-bold">[Q${item.q}] Diff b: ${item.b >= 0 ? '+' : ''}${item.b.toFixed(2)} &bull; ${item.outcome}</span>
+                <span class="text-slate-400 font-mono">SE: ±${item.se.toFixed(2)}</span>
+              </div>
+              <div class="text-[11px] font-mono mt-0.5 text-slate-300">
+                &theta;: ${item.prevTheta >= 0 ? '+' : ''}${item.prevTheta.toFixed(2)} &rarr; <strong class="text-white">${item.newTheta >= 0 ? '+' : ''}${item.newTheta.toFixed(2)}</strong> (${item.delta >= 0 ? '+' : ''}${item.delta.toFixed(2)})
+                ${item.note ? `<span class="block text-[10px] text-amber-300 mt-0.5">${item.note}</span>` : ''}
+              </div>
+            </div>
+          `).join('');
+          logContainer.scrollTop = 0;
+        }
+      }
+
+      function simulateResponse(action) {
+        state.questions += 1;
+        const prevTheta = state.theta;
+        let delta = 0;
+        let outcome = "";
+        let isCorrect = false;
+        let note = "";
+
+        if (action === 'correct') {
+          // Bayesian 3PL update formula approximation
+          delta = 0.42 / (1 + state.questions * 0.12);
+          state.theta = Math.min(3.00, state.theta + delta);
+          outcome = "Correct Response";
+          isCorrect = true;
+          // Standard error narrows with every test point
+          state.se = Math.max(0.18, state.se * 0.88);
+        } else if (action === 'incorrect') {
+          delta = -0.38 / (1 + state.questions * 0.12);
+          state.theta = Math.max(-3.00, state.theta + delta);
+          outcome = "Incorrect Response";
+          isCorrect = false;
+          note = "⚠ Socratic Dynamic Micro-Lesson Dispatched";
+          state.se = Math.max(0.18, state.se * 0.90);
+        } else if (action === 'guess') {
+          // Lucky Guess parameter c=0.20 dampens positive ability shift
+          delta = 0.15 / (1 + state.questions * 0.15);
+          state.theta = Math.min(3.00, state.theta + delta);
+          outcome = "Lucky Guess (c=0.20)";
+          isCorrect = true;
+          note = "★ 3PL Guessing Asymptote Penalty Applied";
+          state.se = Math.max(0.20, state.se * 0.95);
+        }
+
+        // Adjust next item difficulty to track estimated ability
+        state.b = parseFloat(state.theta.toFixed(2));
+
+        // Record history
+        state.history.unshift({
+          q: state.questions,
+          b: parseFloat(prevTheta.toFixed(2)),
+          outcome: outcome,
+          isCorrect: isCorrect,
+          prevTheta: prevTheta,
+          newTheta: state.theta,
+          delta: delta,
+          se: state.se,
+          note: note
+        });
+
+        updateSimulationUI();
+      }
+
+      function resetSimulation() {
+        state.theta = 0.00;
+        state.se = 0.75;
+        state.b = 0.00;
+        state.questions = 0;
+        state.history = [];
+        updateSimulationUI();
+      }
+
+      // Mobile Menu Toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const hamb = document.getElementById('hamburger-icon');
+        const close = document.getElementById('close-icon');
+        if (menu.classList.contains('hidden')) {
+          menu.classList.remove('hidden');
+          hamb.classList.add('hidden');
+          close.classList.remove('hidden');
+        } else {
+          menu.classList.add('hidden');
+          hamb.classList.remove('hidden');
+          close.classList.add('hidden');
+        }
+      }
+
+      // Modals
+      function openCatalogModal() {
+        document.getElementById('catalog-modal').classList.remove('hidden');
+      }
+      function closeCatalogModal() {
+        document.getElementById('catalog-modal').classList.add('hidden');
+      }
+
+      function openVerifyModal() {
+        document.getElementById('verify-modal').classList.remove('hidden');
+      }
+      function closeVerifyModal() {
+        document.getElementById('verify-modal').classList.add('hidden');
+      }
+
+      function openCandidateDemoModal() {
+        document.getElementById('candidate-modal').classList.remove('hidden');
+      }
+      function closeCandidateDemoModal() {
+        document.getElementById('candidate-modal').classList.add('hidden');
+      }
+
+      function openAdminModal() {
+        document.getElementById('admin-modal').classList.remove('hidden');
+      }
+      function closeAdminModal() {
+        document.getElementById('admin-modal').classList.add('hidden');
+      }
+
+      function openArchitectureModal() {
+        window.location.hash = "#architecture";
+      }
+
+      function startExamMock(subject) {
+        alert(`Initializing Sensighty 3PL CAT Exam for: ${subject}\n\n• Calibrating starting theta at population mean (0.00)\n• Ingesting Concept Knowledge DAG\n• Preparing real-time Bayesian assessment session`);
+      }
+
+      function runVerificationCheck() {
+        const res = document.getElementById('verification-result');
+        res.classList.remove('hidden');
+        alert("Validating cryptographic SHA-256 integrity hash against tamper-evident audit ledger... Result: 100% VALID & AUTHENTIC.");
+      }
+
+      // Initialize UI on load
+      document.addEventListener('DOMContentLoaded', () => {
+        updateSimulationUI();
+      });
+    </script>
+  </body>
+</html>
